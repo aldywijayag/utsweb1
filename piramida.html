@@ -51,39 +51,73 @@
     <div class="col-12 mx-auto w-25 mt-3">
       <div class="card">
           <div class="bg-secondary p-2 text-dark bg-opacity-25">Bintang Piramida</div>
-          <form class="px-4 py-3">
+          <form class="px-4 py-3" id="form-piramid" onsubmit="piramida(event)">
             <img class="mb-4 mx-auto d-block" src="img/alliance.png " alt="" width="50">
               <div class="mb-3">
                 <label for="nilai" class="form-label">Masukkan Tinggi Piramida</label>
                 <input type="number" class="form-control" id="tinggi" placeholder="1-10">
               </div>
-              <button type="submit" class="btn btn-primary" onclick="Piramida()">Buat Piramida</button>
+              <button type="submit" class="btn btn-primary">Buat Piramida</button>
             </form>
         </div>
     </div>
-    <!-- <div class="col-12 mx-auto text-center w-25 mt-3">
-      <p id="hasil">a</p>
-    </div> -->
+    <div class="col-12 mx-auto text-center w-25 mt-3">
+      <p id="hasil"></p>
+    </div>
     <!-- Container-->
     <script>
-      function Piramida(){ 
-      let baris = 0;
-      let i = 0;
-      // var hsl = document.getElementById("hasil");
-      const tinggi = document.getElementById("tinggi").value;
-        for (baris = 1; baris <= tinggi ; baris++) {
-          for (i = 1; i <= tinggi - baris; i++) {
-            // hsl.innerHTML = "$nbsp";
-            document.write("&nbsp");
-          }  
-            for (i = 1; i < 2 * baris; i++) {
-              // hsl.innerHTML = "*";
-              document.write("*");
-            }
-            // hsl.innerHTML = "<br>";
-            document.write("<br>");
-        }
+      function piramida(event) {
+        event.preventDefault();
+
+        let baris = 0;
+        let i = 0;
+        const hsl = document.getElementById("hasil");
+        const tinggi = document.getElementById("tinggi").value;
+
+        let html = '';
+          for (baris = 1; baris <= tinggi ; baris++) {
+            for (i = 1; i <= tinggi - baris; i++) {
+              html += " ";
+              // document.write("&nbsp");
+            }  
+              for (i = 1; i < 2 * baris; i++) {
+                html += "*";
+                // document.write("*");
+              }
+              html += "<br>";
+              // document.write("<br>");
+          }
+          hsl.innerHTML = html;
       }
+      
+      // const form = document.getElementById("form-piramid");
+
+      // form.addEventListener('click', function(event){
+      //   event.preventDefault();
+
+      //   let baris = 0;
+      //   let i = 0;
+      //   const hsl = document.getElementById("hasil");
+      //   const tinggi = document.getElementById("tinggi").value;
+
+      //   let html = '';
+      //     for (baris = 1; baris <= tinggi ; baris++) {
+      //       for (i = 1; i <= tinggi - baris; i++) {
+      //         html += " ";
+      //         // document.write("&nbsp");
+      //       }  
+      //         for (i = 1; i < 2 * baris; i++) {
+      //           html += "*";
+      //           // document.write("*");
+      //         }
+      //         html += "<br>";
+      //         // document.write("<br>");
+      //     }
+
+      //     hsl.innerHTML = html;
+
+      // });
+      
   </script>
 </body>
 </html>
